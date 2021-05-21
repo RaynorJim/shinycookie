@@ -3,6 +3,7 @@
 export(initShinyCookie)
 export(removeCookie)
 export(updateCookie)
+export(updateCookieParam)
 import(shiny)
 importFrom(htmltools,HTML)
 importFrom(htmltools,span)

@@ -54,6 +54,19 @@ shinyCookie = (function(){
     });
   });
 
+
+  Shiny.addCustomMessageHandler('shinyCookieParam', function(data) {
+    let key = data.name;
+    let val = data.value;
+    if (typeof(val) !== 'string'){
+      // If it's not a raw string, JSON.stringify
+      val = JSON.stringify(val);
+    }
+    let param = data.parameters
+    Cookies.set(key, val, param);
+
+  });
+
   Shiny.addCustomMessageHandler('shinyCookieRemove', function(data) {
     cookie_name = data.name;
     delete data.name;
